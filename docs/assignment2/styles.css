@@ -56,6 +56,17 @@ section {
     margin-bottom: 40px;
 }
 
+/* Clear floats inside sections so following sections don't wrap around images */
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#aboutme {
+    margin-bottom: 0;
+}
+
 /* About Me Header Layout */
 .aboutme-header {
     margin-bottom: 20px;
