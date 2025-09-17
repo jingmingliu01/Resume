@@ -56,6 +56,58 @@ section {
     margin-bottom: 40px;
 }
 
+/* About Me Header Layout */
+.aboutme-header {
+    margin-bottom: 20px;
+    overflow: hidden; /* Clear floats */
+}
+
+.aboutme-header h1 {
+    float: left;
+    margin: 0;
+}
+
+.social-links {
+    float: right;
+    margin-top: 5px;
+}
+
+.social-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.social-link:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.github-link:hover {
+    background-color: #e3f2fd;
+    color: #0077b5;
+}
+
+.linkedin-link:hover {
+    background-color: #e3f2fd;
+    color: #0077b5;
+}
+
+.link-icon {
+    font-size: 1.1em;
+}
+
 h1 {
     text-align: left;
     font-size: 2em;
@@ -184,6 +236,7 @@ section:last-child {
     
     h1 {
         font-size: 2em;
+        margin: 10px 0;
     }
     
     main {
@@ -195,5 +248,26 @@ section:last-child {
         width: 100%;
         float: none;
         margin-right: 0;
+    }
+    
+    /* Mobile responsive for About Me header */
+    .aboutme-header h1 {
+        float: none;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .social-links {
+        float: none;
+        display: block;
+        margin-top: 0;
+    }
+    
+    .social-link {
+        font-size: 0.85em;
+        padding: 6px 12px;
+        margin-left: 0;
+        margin-right: 8px;
+        margin-bottom: 5px;
     }
 }
