@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Position Absolute and Relative Example</title>
+</head>
+<body>
+<div class="parent">
+  <div class="box" id="one">One</div>
+  <div class="box" id="two">Two</div>
+  <div class="box" id="three">Three</div>
+  <div class="box" id="four">Four</div>
+</div>
+
+<style>
+    .parent {
+    border: 2px black dotted;
+    display: inline-block;
+  }
+  
+  .box {
+    display: inline-block;
+    background: red;
+    width: 100px;
+    height: 100px;
+  }
+  /* Move the green box relative to its current position to 20px from the left 
+  and top without changing the layout around it. 
+  Thus, leaving a gap for the green box where it would have been had it not been position.
+
+  */
+  #two {
+    top: 20px;
+    left: 20px;
+    background: green;
+    position: relative; /* THIS IS NEW*/
+  }
+</style>
+  
+</body>
+</html>

@@ -67,6 +67,10 @@ section::after {
     margin-bottom: 0;
 }
 
+#about-xichi {
+    display: none;
+}
+
 /* About Me Header Layout */
 .aboutme-header {
     margin-bottom: 20px;

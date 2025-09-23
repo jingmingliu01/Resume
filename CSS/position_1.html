@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Position Absolute and Relative Example</title>
+</head>
+<body>
+<div class="parent">
+  <div class="box" id="one">One</div>
+  <div class="box" id="two">Two</div>
+  <div class="box" id="three">Three</div>
+  <div class="box" id="four">Four</div>
+</div>
+
+<style>
+    .parent {
+    border: 2px black dotted;
+    display: inline-block;
+  }
+  
+  .box {
+    display: inline-block;
+    background: red;
+    width: 100px;
+    height: 100px;
+  }
+  /* By applying position: absolute to the GreenBox, 
+  it will not leave any gap where it would have been.
+   The position of the GreenBox is based on its 
+   parent position (the dotted border).
+    Thus, moving 20px to the left and bottom from
+     the top-left origin of the dotted border.
+  */
+  #two {
+  top: 20px;
+  left: 20px;
+  background: green;
+  position: absolute;
+}
+
+</style>
+  
+</body>
+</html>
