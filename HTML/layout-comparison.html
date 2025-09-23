@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout Methods Comparison</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        
+        .item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        /* 传统方法：Float */
+        .float-container {
+            overflow: hidden;
+        }
+        
+        .float-item {
+            float: left;
+            width: 23%;
+            margin: 0 1%;
+        }
+        
+        /* 现代方法：Flexbox */
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .flex-item {
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        /* 现代方法：Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .grid-item {
+            /* 不需要额外样式，grid自动处理 */
+        }
+        
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Layout Methods Comparison</h1>
+    
+    <h2>传统方法：Float</h2>
+    <div class="container float-container">
+        <div class="item float-item">Item 1</div>
+        <div class="item float-item">Item 2</div>
+        <div class="item float-item">Item 3</div>
+        <div class="item float-item">Item 4</div>
+    </div>
+    
+    <h2>现代方法：Flexbox</h2>
+    <div class="container flex-container">
+        <div class="item flex-item">Item 1</div>
+        <div class="item flex-item">Item 2</div>
+        <div class="item flex-item">Item 3</div>
+        <div class="item flex-item">Item 4</div>
+    </div>
+    
+    <h2>现代方法：Grid</h2>
+    <div class="container grid-container">
+        <div class="item grid-item">Item 1</div>
+        <div class="item grid-item">Item 2</div>
+        <div class="item grid-item">Item 3</div>
+        <div class="item grid-item">Item 4</div>
+    </div>
+    
+    <h2>Flexbox 高级示例：垂直居中</h2>
+    <div class="container flex-container" style="height: 150px; align-items: center;">
+        <div class="item flex-item">垂直居中</div>
+        <div class="item flex-item">很简单！</div>
+    </div>
+    
+    <h2>Grid 高级示例：复杂布局</h2>
+    <div class="container grid-container" style="grid-template-columns: 2fr 1fr; grid-template-rows: auto auto;">
+        <div class="item grid-item" style="grid-column: 1 / 3;">Header (跨越2列)</div>
+        <div class="item grid-item">Sidebar</div>
+        <div class="item grid-item">Main Content</div>
+    </div>
+</body>
+</html>

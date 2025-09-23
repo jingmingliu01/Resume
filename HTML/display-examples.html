@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Properties Examples</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            margin: 20px;
+            padding: 10px;
+        }
+        
+        .block {
+            display: block;
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        .inline {
+            display: inline;
+            width: 100px;    /* 无效 */
+            height: 50px;    /* 无效 */
+            background-color: blue;
+            margin: 5px;
+            padding: 10px;
+        }
+        
+        .inline-block {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: green;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Properties Examples</h1>
+    
+    <div class="container">
+        <h2>display: block</h2>
+        <div class="block">Block 1</div>
+        <div class="block">Block 2</div>
+        <div class="block">Block 3</div>
+    </div>
+    
+    <div class="container">
+        <h2>display: inline</h2>
+        <span class="inline">Inline 1</span>
+        <span class="inline">Inline 2</span>
+        <span class="inline">Inline 3</span>
+    </div>
+    
+    <div class="container">
+        <h2>display: inline-block</h2>
+        <div class="inline-block">Inline-Block 1</div>
+        <div class="inline-block">Inline-Block 2</div>
+        <div class="inline-block">Inline-Block 3</div>
+    </div>
+</body>
+</html>
