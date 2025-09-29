@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Design Demo</title>
+    <style>
+      /* 1) Base styles (mobile-first) */
+      :root {
+        --spacing-1: 0.5rem;
+        --spacing-2: 1rem;
+        --spacing-3: 1.5rem;
+        --max-width: 1100px;
+        --card-gap: 1rem;
+        /* Fluid type: min 16px, ideal scales with viewport, max 22px */
+        --font-size-base: clamp(1rem, 2vw + 0.5rem, 1.375rem);
+        --font-size-h1: clamp(1.5rem, 4.5vw + 0.5rem, 2.5rem);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-size: var(--font-size-base);
+        line-height: 1.5;
+        color: #1f2937;
+        background: #f8fafc;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 var(--spacing-2);
+      }
+
+      header {
+        padding: var(--spacing-3) 0;
+      }
+
+      h1 {
+        margin: 0 0 var(--spacing-2) 0;
+        font-size: var(--font-size-h1);
+      }
+
+      .topbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-1);
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav {
+        display: flex;
+        gap: var(--spacing-2);
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: #334155;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
+      }
+
+      .nav a:hover {
+        background: #e2e8f0;
+      }
+
+      /* Content cards use CSS Grid */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 column on small screens */
+        gap: var(--card-gap);
+        margin: var(--spacing-3) 0;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        padding: var(--spacing-2);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.5rem;
+        margin-bottom: var(--spacing-2);
+      }
+
+      footer {
+        padding: var(--spacing-3) 0;
+        color: #64748b;
+        text-align: center;
+      }
+
+      /* 2) Medium screens: enhance layout */
+      @media (min-width: 640px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        }
+      }
+
+      /* 3) Large screens: max-width container and more columns */
+      @media (min-width: 1024px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container">
+      <div class="topbar">
+        <strong>Brand</strong>
+        <nav class="nav" aria-label="Primary">
+          <a href="#">Home</a>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+        </nav>
+      </div>
+      <h1>Responsive Design Demo</h1>
+      <p>Resize the browser to see the grid change from 1 → 2 → 3 columns.</p>
+    </header>
+
+    <main class="container">
+      <section class="grid">
+        <article class="card">
+          <img src="https://picsum.photos/600/400?1" alt="Random scenic view 1" />
+          <h2>Card One</h2>
+          <p>Mobile-first layout with fluid type using clamp for readable text.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/600/400?2" alt="Random scenic view 2" />
+          <h2>Card Two</h2>
+          <p>Flex-based nav wraps on small screens; space evenly on larger screens.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/600/400?3" alt="Random scenic view 3" />
+          <h2>Card Three</h2>
+          <p>Grid columns scale at 640px and 1024px breakpoints for better use of space.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/600/400?4" alt="Random scenic view 4" />
+          <h2>Card Four</h2>
+          <p>Images are responsive via width: 100% and height: auto.</p>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/600/400?5" alt="Random scenic view 5" />
+          <h2>Card Five</h2>
+          <p>Container centers content and limits max line length for readability.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container">
+      <small>© 2025 Responsive Demo</small>
+    </footer>
+  </body>
+</html>
