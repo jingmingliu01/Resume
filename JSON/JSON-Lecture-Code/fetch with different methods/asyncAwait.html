@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+      margin: 20px;
+    }
+    .single-book {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 8px 25px 0px;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .single-book h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+    .single-book p {
+      margin: 0;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  </style>
+  <body>
+    <section class="books"></section>
+
+    <script src="asyncAwait.js"></script>
+  </body>
+</html>
