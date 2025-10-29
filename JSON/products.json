@@ -1,0 +1,64 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Apple",
+        "price": 1.25,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Banana",
+        "price": 0.85,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Orange",
+        "price": 1.10,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Strawberry",
+        "price": 2.50,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/PerfectStrawberry.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Grapes",
+        "price": 3.20,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Table_grapes_on_white.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Watermelon",
+        "price": 4.50,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/47/Taiwan_2009_Tainan_City_Organic_Watermelon_FRD_7962.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Mango",
+        "price": 2.75,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Pineapple",
+        "price": 3.99,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Pineapple_and_cross_section.jpg"
+      },
+      {
+        "id": 9,
+        "name": "Kiwi",
+        "price": 1.80,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Kiwi_aka.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Blueberry",
+        "price": 4.25,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Blueberries.jpg"
+      }
+    ]
+  }
