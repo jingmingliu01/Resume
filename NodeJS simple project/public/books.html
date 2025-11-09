@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books | Node.js Demo</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #74abe2, #5563de);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: 500;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #ffd166;
+        transform: scale(1.08);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 50px 20px 40px;
+        flex: 1;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+      }
+
+      p.lead {
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 20px;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+      }
+
+      .card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .meta {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 8px;
+        font-size: 0.95rem;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        background: #ffd166;
+        color: #262626;
+        font-weight: 600;
+      }
+
+      .badge.secondary {
+        background: #f15b5b;
+        color: #fff;
+      }
+
+      footer {
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        padding: 10px 0;
+        font-size: 0.9rem;
+        color: #fff;
+      }
+
+      footer a {
+        color: #ffd166;
+        text-decoration: none;
+      }
+
+      .status {
+        margin-top: 20px;
+        opacity: 0.85;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/books">Books</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container">
+      <h1>Books (from <code>books.json</code>)</h1>
+      <p class="lead">
+        This page fetches data from <strong>/books-data</strong> and displays
+        all the books below.
+      </p>
+
+      <!-- Dynamic grid of book cards -->
+      <div id="grid" class="grid" aria-live="polite"></div>
+
+      <!-- Loading/status text -->
+      <div id="status" class="status"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      © 2025 Node.js Demo • Data served from
+      <a href="/books-data">/books-data</a>
+    </footer>
+
+    <!-- Script -->
+    <script>
+      const grid = document.getElementById("grid");
+      const statusEl = document.getElementById("status");
+      let books = [];
+
+      // Fetch books data from the server
+      async function load() {
+        statusEl.textContent = "Loading…";
+        try {
+          const res = await fetch("/books-data");
+          if (!res.ok) throw new Error("Network error: " + res.status);
+
+          const data = await res.json();
+          books = Array.isArray(data.books) ? data.books : [];
+
+          render();
+          statusEl.textContent = `Loaded ${books.length} books`;
+        } catch (err) {
+          statusEl.textContent = "Failed to load data.";
+          grid.innerHTML = "<p>Could not load data from /books-data.</p>";
+          console.error(err);
+        }
+      }
+
+      // Render book cards to the grid
+      function render() {
+        grid.innerHTML = books
+          .map((b) => {
+            const badge = b.published
+              ? '<span class="badge">Published</span>'
+              : '<span class="badge secondary">Unpublished</span>';
+            return `
+              <article class="card" tabindex="0">
+                <h3>${b.title}</h3>
+                <div class="meta">
+                  <span>Year: <strong>${b.year}</strong></span>
+                  ${badge}
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        if (books.length === 0) {
+          grid.innerHTML = "<p>No books available.</p>";
+        }
+      }
+
+      // Load books on page load
+      load();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Book #1 --- Einstein’s Relativity: The Fabric of Space and Time",
+      "year": 1916,
+      "published": true
+    },
+    {
+      "id": 2,
+      "title": "Book #2 --- Quantum Questions: Einstein and the Debate on Light",
+      "year": 1925,
+      "published": true
+    },
+    {
+      "id": 3,
+      "title": "Book #3 --- Letters to a Friend: Einstein’s Reflections on Science and Society",
+      "year": 1936,
+      "published": true
+    },
+    {
+      "id": 4,
+      "title": "Book #4 --- The Unfinished Theory: Notes from Einstein’s Final Years",
+      "year": 1954,
+      "published": false
+    },
+    {
+      "id": 5,
+      "title": "Book #5 --- Music of the Mind: Einstein’s Journey Beyond Physics",
+      "year": 1949,
+      "published": true
+    },
+    {
+      "id": 6,
+      "title": "Book #6 --- Conversations with the Cosmos: Einstein’s Lost Papers",
+      "year": 1955,
+      "published": false
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Node.js Demo</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #5563de, #74abe2);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: 500;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      nav a:hover {
+        color: #ffd166;
+        transform: scale(1.1);
+      }
+
+      .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 20px;
+        max-width: 800px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+        margin-top: 20px;
+      }
+
+      .card h2 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        color: #ffd166;
+      }
+
+      .card p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      footer {
+        background: rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      footer a {
+        color: #ffd166;
+        text-decoration: none;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/books">Books</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    <div class="container">
+      <h1>About This Project</h1>
+      <p>
+        This Node.js demo project was created to show how a simple web server
+        can handle routing and serve static files without using external
+        frameworks like Express.
+      </p>
+
+      <div class="card">
+        <h2>Technologies Used</h2>
+        <p>
+          This project uses Node.js core modules — <strong>http</strong> for the
+          server, <strong>path</strong> for handling file paths, and
+          <strong>fs</strong> for reading files.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Goal</h2>
+        <p>
+          The goal is to demonstrate how basic routing works in Node.js and how
+          you can serve HTML pages and JSON data from a custom-built server.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      © 2025 Node.js Demo | Built using
+      <a href="https://nodejs.org" target="_blank">Node.js</a>
+    </footer>
+  </body>
+</html>
