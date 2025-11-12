@@ -67,6 +67,77 @@
         filter: brightness(1.1);
         transform: translateY(-2px);
       }
+
+      /* Modal Styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-overlay.show {
+        display: flex;
+      }
+
+      .modal-box {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-box h3 {
+        color: #e63946;
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      .modal-box p {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .modal-box button {
+        width: 120px;
+        padding: 10px;
+        background: #e63946;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      .modal-box button:hover {
+        background: #d62828;
+        transform: translateY(-2px);
+      }
     </style>
   </head>
 
@@ -90,5 +161,42 @@
         <button type="submit">Login</button>
       </form>
     </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal-overlay">
+      <div class="modal-box">
+        <h3>Login Failed</h3>
+        <p>Invalid username or password. Please try again.</p>
+        <button onclick="closeModal()">OK</button>
+      </div>
+    </div>
+
+    <script>
+      // Check if error parameter exists in URL
+      window.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+
+        if (error === '1') {
+          document.getElementById('errorModal').classList.add('show');
+        }
+      });
+
+      // Close modal function
+      function closeModal() {
+        document.getElementById('errorModal').classList.remove('show');
+        // Remove error parameter from URL without reloading
+        const url = new URL(window.location);
+        url.searchParams.delete('error');
+        window.history.replaceState({}, '', url);
+      }
+
+      // Close modal when clicking outside the modal box
+      document.getElementById('errorModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+    </script>
   </body>
 </html>

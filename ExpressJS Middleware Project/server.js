@@ -88,7 +88,7 @@ app.post("/login", (req, res) => {
     console.log(req.session.username);
     res.redirect("/main");
   } else {
-    res.status(401).send("Invalid username or password");
+    res.redirect("/?error=1");
   }
 });
 
